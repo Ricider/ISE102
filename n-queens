@@ -1,0 +1,3 @@
+perm=lambda list_:[(yield list_) for i in [0]] if len(list_) is 1 else [(yield [list_[i]]+v) for i in range(len(list_)) for v in perm(list_[:i]+list_[i+1:])]
+findqueens=lambda list_:[(yield i) for i in perm(list_) if len(set([v-i[v] for v in range(len(list_))])) is len(list_) and len(set([k+i[k] for k in range(len(list_))])) is len(list_)]
+print(next(findqueens(list(range(8))))) #lol
